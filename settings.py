@@ -12,3 +12,6 @@ OPENROUTER_API_BASE = os.getenv("OPENROUTER_API_BASE", "https://openrouter.ai/ap
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 SITE_URL = os.getenv("SITE_URL", "https://mygame.example")
 
+# Mission monitoring interval in seconds
+MONITOR_INTERVAL = int(os.getenv("MONITOR_INTERVAL", "60"))
+
