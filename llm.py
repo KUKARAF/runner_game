@@ -20,7 +20,25 @@ class Mission(RunningGame):
         model: str = "openai/gpt-4o",
         site_title: str = "Running Game",
     ):
-        super().__init__(game_name, mode, target_value)
+        # Initialize the parent class with the correct parameters
+        # Based on RunningGame's __init__ signature, it expects:
+        # game_name: str, distance_goal_m: float = None, time_goal_min: float = None, base_story_path="stories"
+        # We need to map mode to the appropriate goal
+        if mode == "distance":
+            distance_goal_m = target_value
+            time_goal_min = None
+        elif mode == "time":
+            distance_goal_m = None
+            time_goal_min = target_value
+        else:
+            distance_goal_m = None
+            time_goal_min = None
+            
+        super().__init__(game_name, distance_goal_m, time_goal_min)
+        
+        # Set our own attributes
+        self.mode = mode
+        self.target_value = target_value
 
         self.model = model
         self.api_key = OPENROUTER_API_KEY
