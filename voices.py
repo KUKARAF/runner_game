@@ -72,8 +72,7 @@ class VoiceGenerator:
             extra_headers=self.extra_headers,
             model=self.model,
             messages=[
-                {"role": "system", "content": "You are a voice actor for an immersive running
-game."},
+                {"role": "system", "content": "You are a voice actor for an immersive running game."},
                 {"role": "user", "content": prompt},
             ],
             temperature=0.9,
